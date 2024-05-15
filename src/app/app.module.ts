@@ -29,7 +29,6 @@ import { MatCardModule } from '@angular/material/card';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MotoristasComponent } from './components/motoristas/motoristas.component';
 
@@ -49,6 +48,7 @@ import { AddEntregaDialogComponent } from './components/entregas/add-entrega-dia
 import { EditCargaDialogComponent } from './components/cargas/edit-carga-dialog/edit-carga-dialog.component';
 import { EditCaminhaoDialogComponent } from './components/caminhoes/edit-caminhao-dialog/edit-caminhao-dialog.component';
 import { EditMotoristaDialogComponent } from './components/edit-motorista-dialog/edit-motorista-dialog.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -56,7 +56,6 @@ import { EditMotoristaDialogComponent } from './components/edit-motorista-dialog
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent,
     HeaderComponent,
     MotoristasComponent,
     MotoristaDetailsDialogComponent,
@@ -71,7 +70,8 @@ import { EditMotoristaDialogComponent } from './components/edit-motorista-dialog
     AddEntregaDialogComponent,
     EditCargaDialogComponent,
     EditCaminhaoDialogComponent,
-    EditMotoristaDialogComponent
+    EditMotoristaDialogComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

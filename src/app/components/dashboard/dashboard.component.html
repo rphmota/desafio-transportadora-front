@@ -1,0 +1,53 @@
+<div class="dashboard-container">
+  <div class="dashboard-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Total de Caminhões</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>{{ totalCaminhoes }}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="dashboard-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Entregas Hoje</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li *ngFor="let entrega of entregasHoje">
+            {{ entrega.destino }} - {{ entrega.valorTotal | currency }}
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="dashboard-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Tipos de Cargas</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ul>
+          <li *ngFor="let tipo of tiposCargas | keyvalue">
+            {{ tipo.key }}: {{ tipo.value }}
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="dashboard-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Valor Total das Entregas Hoje</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h2>{{ valorTotalHoje | currency }}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

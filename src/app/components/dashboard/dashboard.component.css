@@ -1,0 +1,29 @@
+.dashboard-container {
+  display: flex;
+  padding-top: 3rem;
+  color: white;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-card {
+  flex: 1 1 calc(25% - 16px);
+  min-width: 200px;
+}
+
+mat-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-card-content h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+mat-card-content ul {
+  list-style-type: none;
+  padding: 0;
+}
