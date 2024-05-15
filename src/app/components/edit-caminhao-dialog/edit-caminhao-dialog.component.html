@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Editar Caminhão</h2>
+<mat-dialog-content>
+  <form [formGroup]="caminhaoForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Placa</mat-label>
+      <input matInput formControlName="placa" required>
+      <mat-error *ngIf="caminhaoForm.get('placa')?.hasError('required')">
+        A placa é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Capacidade</mat-label>
+      <input matInput formControlName="capacidade" required type="number">
+      <mat-error *ngIf="caminhaoForm.get('capacidade')?.hasError('required')">
+        A capacidade é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cliente</mat-label>
+      <mat-select formControlName="clienteId" required>
+        <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nome }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="caminhaoForm.get('clienteId')?.hasError('required')">
+        O cliente é obrigatório
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button  (click)="submit()" [disabled]="caminhaoForm.invalid">Salvar</button>
+</mat-dialog-actions>

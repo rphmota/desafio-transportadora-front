@@ -14,31 +14,19 @@ export interface Caminhao {
     id: number;
     nome: string;
   } | null;
-  entregas: Entrega[];
+  entregas: any[];
 }
 
 export interface CreateCaminhao {
   placa: string;
   capacidade: number;
-  cliente: {
-    id: number;
-  };
+  cliente: { id: number };
 }
 
-export interface Entrega {
-  id: number;
-  destino: string;
-  valorBase: number;
-  valorTotal: number;
-  dataEntrega: string;
-  valiosa: boolean;
-  segurada: boolean;
-  perigosa: boolean;
-  carga: {
-    id: number;
-    tipo: string;
-    descricao: string;
-  };
+export interface UpdateCaminhao {
+  placa?: string;
+  capacidade?: number;
+  cliente?: { id: number };
 }
 
 @Injectable({
@@ -57,12 +45,12 @@ export class CaminhoesService {
     return this.http.get<Caminhao>(`${this.apiUrl}/${id}`);
   }
 
-  updateCaminhao(caminhao: Caminhao): Observable<Caminhao> {
-    return this.http.put<Caminhao>(`${this.apiUrl}/${caminhao.id}`, caminhao);
-  }
-
   addCaminhao(caminhao: CreateCaminhao): Observable<Caminhao> {
     return this.http.post<Caminhao>(this.apiUrl, caminhao);
+  }
+
+  updateCaminhao(id: number, caminhao: UpdateCaminhao): Observable<Caminhao> {
+    return this.http.put<Caminhao>(`${this.apiUrl}/${id}`, caminhao);
   }
 
   deleteCaminhao(id: number): Observable<void> {
