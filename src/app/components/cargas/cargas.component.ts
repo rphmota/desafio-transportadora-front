@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CargasService, Carga } from '../../services/cargas.service';
 import { AddCargaDialogComponent } from './add-carga-dialog/add-carga-dialog.component';
+import {EditCargaDialogComponent} from "./edit-carga-dialog/edit-carga-dialog.component";
 
 @Component({
   selector: 'app-cargas',
@@ -49,7 +50,18 @@ export class CargasComponent implements OnInit {
 
   editCarga(id: number) {
     const carga = this.dataSource.data.find(c => c.id === id);
-    console.log('Edit Carga:', carga);
+    if (carga) {
+      const dialogRef = this.dialog.open(EditCargaDialogComponent, {
+        width: '400px',
+        data: { carga }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.getCargas();
+        }
+      });
+    }
   }
 
   deleteCarga(id: number) {

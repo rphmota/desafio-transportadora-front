@@ -29,12 +29,12 @@ export class CargasService {
     return this.http.get<Carga>(`${this.apiUrl}/${id}`);
   }
 
-  updateCarga(carga: Carga): Observable<Carga> {
-    return this.http.put<Carga>(`${this.apiUrl}/${carga.id}`, carga);
-  }
-
   addCarga(carga: CreateCarga): Observable<Carga> {
     return this.http.post<Carga>(this.apiUrl, carga);
+  }
+
+  updateCarga(id: number, carga: Partial<Carga>): Observable<Carga> {
+    return this.http.put<Carga>(`${this.apiUrl}/${id}`, carga);
   }
 
   deleteCarga(id: number): Observable<void> {
