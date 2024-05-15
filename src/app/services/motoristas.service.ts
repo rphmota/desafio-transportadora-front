@@ -2,26 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface Entrega {
-  id: number;
-  destino: string;
-  valorBase: number;
-  valorTotal: number;
-  dataEntrega: string;
-  valiosa: boolean;
-  segurada: boolean;
-  perigosa: boolean;
-  carga: {
-    descricao: string;
-    tipo: string;
-  };
-  caminhaoId: number;
-}
-
 export interface Motorista {
   id: number;
   nome: string;
-  entregas?: Entrega[];
+  entregas?: any[];
+}
+
+export interface CreateMotorista {
+  nome: string;
+}
+
+export interface UpdateMotorista {
+  nome?: string;
 }
 
 @Injectable({
@@ -29,7 +21,6 @@ export interface Motorista {
 })
 export class MotoristasService {
   private apiUrl = 'http://localhost:8080/motoristas';
-
 
   constructor(private http: HttpClient) { }
 
@@ -41,12 +32,12 @@ export class MotoristasService {
     return this.http.get<Motorista>(`${this.apiUrl}/${id}`);
   }
 
-  updateMotorista(motorista: Motorista): Observable<Motorista> {
-    return this.http.put<Motorista>(`${this.apiUrl}/${motorista.id}`, motorista);
+  addMotorista(motorista: CreateMotorista): Observable<Motorista> {
+    return this.http.post<Motorista>(this.apiUrl, motorista);
   }
 
-  addMotorista(motorista: Partial<Motorista>): Observable<Motorista> {
-    return this.http.post<Motorista>(this.apiUrl, motorista);
+  updateMotorista(id: number, motorista: UpdateMotorista): Observable<Motorista> {
+    return this.http.put<Motorista>(`${this.apiUrl}/${id}`, motorista);
   }
 
   deleteMotorista(id: number): Observable<void> {

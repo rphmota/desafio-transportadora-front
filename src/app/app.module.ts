@@ -47,7 +47,8 @@ import {EntregaDetailsDialogComponent} from "./components/entregas/entrega-detal
 import { AddCargaDialogComponent } from './components/cargas/add-carga-dialog/add-carga-dialog.component';
 import { AddEntregaDialogComponent } from './components/entregas/add-entrega-dialog/add-entrega-dialog.component';
 import { EditCargaDialogComponent } from './components/cargas/edit-carga-dialog/edit-carga-dialog.component';
-import { EditCaminhaoDialogComponent } from './components/edit-caminhao-dialog/edit-caminhao-dialog.component';
+import { EditCaminhaoDialogComponent } from './components/caminhoes/edit-caminhao-dialog/edit-caminhao-dialog.component';
+import { EditMotoristaDialogComponent } from './components/edit-motorista-dialog/edit-motorista-dialog.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { EditCaminhaoDialogComponent } from './components/edit-caminhao-dialog/e
     AddCargaDialogComponent,
     AddEntregaDialogComponent,
     EditCargaDialogComponent,
-    EditCaminhaoDialogComponent
+    EditCaminhaoDialogComponent,
+    EditMotoristaDialogComponent
   ],
   imports: [
     BrowserModule,

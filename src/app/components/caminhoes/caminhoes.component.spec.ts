@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CaminhoesService, Caminhao } from '../../services/caminhoes.service';
 import { AddCaminhaoDialogComponent } from './add-caminhao-dialog/add-caminhao-dialog.component';
-import { EditCaminhaoDialogComponent } from '../edit-caminhao-dialog/edit-caminhao-dialog.component'; // Verifique o caminho correto para o seu componente de editar caminhão
+import { EditCaminhaoDialogComponent } from './edit-caminhao-dialog/edit-caminhao-dialog.component'; // Verifique o caminho correto para o seu componente de editar caminhão
 
 @Component({
   selector: 'app-caminhoes',
