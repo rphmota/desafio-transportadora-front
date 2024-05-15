@@ -1,0 +1,17 @@
+.container {
+  height: 100%;
+}
+
+.sidenav {
+  padding-top: 6rem;
+  width: 13rem;
+}
+
+.sidenav-content {
+  padding: 1rem;
+  min-height: 100%;
+  background-color: azure;
+  color: black;
+}
+
+

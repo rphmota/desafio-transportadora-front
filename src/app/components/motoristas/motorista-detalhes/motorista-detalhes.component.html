@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>Detalhes do Motorista</h2>
+<mat-dialog-content>
+  <p><strong>ID:</strong> {{data.motorista.id}}</p>
+  <p><strong>Nome:</strong> {{data.motorista.nome}}</p>
+
+  <h3>Entregas</h3>
+  <table mat-table [dataSource]="data.motorista.entregas" class="mat-elevation-z8" style="width: 100%; margin-top: 16px;">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="destino">
+      <th mat-header-cell *matHeaderCellDef> Destino </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.destino}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="valorBase">
+      <th mat-header-cell *matHeaderCellDef> Valor Base </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.valorBase}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="valorTotal">
+      <th mat-header-cell *matHeaderCellDef> Valor Total </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.valorTotal}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="dataEntrega">
+      <th mat-header-cell *matHeaderCellDef> Data de Entrega </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.dataEntrega | date}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="valiosa">
+      <th mat-header-cell *matHeaderCellDef> Valiosa </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.valiosa ? 'Sim' : 'Não'}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="segurada">
+      <th mat-header-cell *matHeaderCellDef> Segurada </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.segurada ? 'Sim' : 'Não'}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="perigosa">
+      <th mat-header-cell *matHeaderCellDef> Perigosa </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.perigosa ? 'Sim' : 'Não'}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="descricao">
+      <th mat-header-cell *matHeaderCellDef> Descrição </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.carga.descricao}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="tipo">
+      <th mat-header-cell *matHeaderCellDef> Tipo </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.carga.tipo}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="caminhaoId">
+      <th mat-header-cell *matHeaderCellDef> Caminhão ID </th>
+      <td mat-cell *matCellDef="let entrega"> {{entrega.caminhaoId}} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

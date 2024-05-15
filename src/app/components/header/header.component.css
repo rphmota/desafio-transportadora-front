@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #424242;
+  color: white;
+  padding: 0 16px;
+  height: 64px;
+}
+
+.menu-button {
+  margin-right: 16px;
+}
+
+.header-title {
+  font-size: 24px;
+}

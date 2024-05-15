@@ -1,0 +1,12 @@
+.entregas-container {
+  padding: 16px;
+
+}
+
+.mat-elevation-z8 {
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.2), 0 8px 16px -8px rgba(0, 0, 0, 0.2);
+}
+
+.mat-icon-button {
+  margin-right: 8px;
+}

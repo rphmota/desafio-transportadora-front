@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Detalhes da Entrega</h2>
+<mat-dialog-content>
+  <p><strong>ID:</strong> {{ data.entrega.id }}</p>
+  <p><strong>Destino:</strong> {{ data.entrega.destino }}</p>
+  <p><strong>Valor Base:</strong> {{ data.entrega.valorBase }}</p>
+  <p><strong>Valor Total:</strong> {{ data.entrega.valorTotal }}</p>
+  <p><strong>Data de Entrega:</strong> {{ data.entrega.dataEntrega }}</p>
+  <p><strong>Valiosa:</strong> {{ data.entrega.valiosa ? 'Sim' : 'Não' }}</p>
+  <p><strong>Segurada:</strong> {{ data.entrega.segurada ? 'Sim' : 'Não' }}</p>
+  <p><strong>Perigosa:</strong> {{ data.entrega.perigosa ? 'Sim' : 'Não' }}</p>
+  <h3>Caminhão</h3>
+  <p><strong>ID:</strong> {{ data.entrega.caminhao.id }}</p>
+  <p><strong>Placa:</strong> {{ data.entrega.caminhao.placa }}</p>
+  <p><strong>Capacidade:</strong> {{ data.entrega.caminhao.capacidade }}</p>
+  <p><strong>Cliente:</strong> {{ data.entrega.caminhao.cliente.nome }}</p>
+  <h3>Motorista</h3>
+  <p><strong>ID:</strong> {{ data.entrega.motorista.id }}</p>
+  <p><strong>Nome:</strong> {{ data.entrega.motorista.nome }}</p>
+  <h3>Carga</h3>
+  <p><strong>ID:</strong> {{ data.entrega.carga.id }}</p>
+  <p><strong>Tipo:</strong> {{ data.entrega.carga.tipo }}</p>
+  <p><strong>Descrição:</strong> {{ data.entrega.carga.descricao }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Fechar</button>
+</mat-dialog-actions>

@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Detalhes do Caminhão</h2>
+<mat-dialog-content>
+  <p><strong>ID:</strong> {{ data.caminhao.id }}</p>
+  <p><strong>Placa:</strong> {{ data.caminhao.placa }}</p>
+  <p><strong>Capacidade:</strong> {{ data.caminhao.capacidade }}</p>
+  <p><strong>Cliente:</strong> {{ data.caminhao.cliente.nome }}</p>
+  <p><strong>Motorista Atual:</strong> {{ data.caminhao.motorista?.nome || ' - ' }}</p>
+  <h3>Entregas</h3>
+  <ul>
+    <li *ngFor="let entrega of data.caminhao.entregas">
+      <p><strong>Destino:</strong> {{ entrega.destino }}</p>
+      <p><strong>Valor Base:</strong> {{ entrega.valorBase }}</p>
+      <p><strong>Data de Entrega:</strong> {{ entrega.dataEntrega }}</p>
+      <p><strong>Valiosa:</strong> {{ entrega.valiosa ? 'Sim' : 'Não' }}</p>
+      <p><strong>Segurada:</strong> {{ entrega.segurada ? 'Sim' : 'Não' }}</p>
+      <p><strong>Perigosa:</strong> {{ entrega.perigosa ? 'Sim' : 'Não' }}</p>
+      <p><strong>Carga:</strong> {{ entrega.carga.tipo }} - {{ entrega.carga.descricao }}</p>
+      <br>
+      <br>
+    </li>
+  </ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Fechar</button>
+</mat-dialog-actions>

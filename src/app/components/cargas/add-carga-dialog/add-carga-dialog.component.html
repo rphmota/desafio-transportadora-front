@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Adicionar Carga</h2>
+<mat-dialog-content>
+  <form [formGroup]="cargaForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName="tipo" required>
+        <mat-option *ngFor="let tipo of tiposCarga" [value]="tipo">{{ tipo }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="cargaForm.get('tipo')?.hasError('required')">
+        O tipo é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição</mat-label>
+      <input matInput formControlName="descricao" required>
+      <mat-error *ngIf="cargaForm.get('descricao')?.hasError('required')">
+        A descrição é obrigatória
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button (click)="submit()" [disabled]="cargaForm.invalid">Adicionar</button>
+</mat-dialog-actions>

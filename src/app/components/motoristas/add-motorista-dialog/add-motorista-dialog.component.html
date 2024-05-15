@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Adicionar Motorista</h2>
+<mat-dialog-content>
+  <form [formGroup]="motoristaForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" required>
+      <mat-error *ngIf="motoristaForm.get('nome')?.hasError('required')">
+        O nome é obrigatório
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button  (click)="submit()" [disabled]="motoristaForm.invalid">Adicionar</button>
+</mat-dialog-actions>

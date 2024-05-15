@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>Adicionar Entrega</h2>
+<mat-dialog-content>
+  <form [formGroup]="entregaForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Destino</mat-label>
+      <input matInput formControlName="destino" required>
+      <mat-error *ngIf="entregaForm.get('destino')?.hasError('required')">
+        O destino é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Valor Base</mat-label>
+      <input matInput formControlName="valorBase" required type="number">
+      <mat-error *ngIf="entregaForm.get('valorBase')?.hasError('required')">
+        O valor base é obrigatório
+      </mat-error>
+      <mat-error *ngIf="entregaForm.get('valorBase')?.hasError('min')">
+        O valor base deve ser positivo
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Data de Entrega</mat-label>
+      <input matInput formControlName="dataEntrega" required type="date">
+      <mat-error *ngIf="entregaForm.get('dataEntrega')?.hasError('required')">
+        A data de entrega é obrigatória
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Caminhão</mat-label>
+      <mat-select formControlName="caminhaoId" required>
+        <mat-option *ngFor="let caminhao of caminhoes" [value]="caminhao.id">{{ caminhao.placa }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="entregaForm.get('caminhaoId')?.hasError('required')">
+        O caminhão é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Motorista</mat-label>
+      <mat-select formControlName="motoristaId" required>
+        <mat-option *ngFor="let motorista of motoristas" [value]="motorista.id">{{ motorista.nome }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="entregaForm.get('motoristaId')?.hasError('required')">
+        O motorista é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Carga</mat-label>
+      <mat-select formControlName="cargaId" required>
+        <mat-option *ngFor="let carga of cargas" [value]="carga.id">{{ carga.descricao }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="entregaForm.get('cargaId')?.hasError('required')">
+        A carga é obrigatória
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button color="primary" (click)="submit()" [disabled]="entregaForm.invalid">Adicionar</button>
+</mat-dialog-actions>
