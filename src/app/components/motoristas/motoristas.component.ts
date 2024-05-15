@@ -4,7 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MotoristasService, Motorista } from '../../services/motoristas.service';
 import { AddMotoristaDialogComponent } from './add-motorista-dialog/add-motorista-dialog.component';
-import { EditMotoristaDialogComponent } from '../edit-motorista-dialog/edit-motorista-dialog.component'; // Verifique o caminho correto para o seu componente de editar motorista
+import { EditMotoristaDialogComponent } from '../edit-motorista-dialog/edit-motorista-dialog.component';
+import {MotoristaDetailsDialogComponent} from "./motorista-detalhes/motorista-detalhes.component"; // Verifique o caminho correto para o seu componente de editar motorista
 
 @Component({
   selector: 'app-motoristas',
@@ -34,6 +35,20 @@ export class MotoristasComponent implements OnInit {
         console.error('Erro ao buscar os dados dos motoristas', error);
       }
     );
+  }
+
+  showMotorista(id: number) {
+    const motorista = this.dataSource.data.find(m => m.id === id);
+    if (motorista) {
+      const dialogRef = this.dialog.open(MotoristaDetailsDialogComponent, {
+        width: '900px',
+        data: { motorista }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('O diálogo foi fechado');
+      });
+    }
   }
 
   addMotorista() {

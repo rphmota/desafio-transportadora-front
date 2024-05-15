@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CaminhoesService, Caminhao } from '../../services/caminhoes.service';
+import { CaminhaoDetailsDialogComponent } from './caminhao-detalhes/caminhao-detalhes.component';
 import { AddCaminhaoDialogComponent } from './add-caminhao-dialog/add-caminhao-dialog.component';
 import { EditCaminhaoDialogComponent } from './edit-caminhao-dialog/edit-caminhao-dialog.component'; // Verifique o caminho correto para o seu componente de editar caminhão
 
@@ -34,6 +35,20 @@ export class CaminhoesComponent implements OnInit {
         console.error('Erro ao buscar os dados dos caminhões', error);
       }
     );
+  }
+
+  showCaminhao(id: number) {
+    const caminhao = this.dataSource.data.find(c => c.id === id);
+    if (caminhao) {
+      const dialogRef = this.dialog.open(CaminhaoDetailsDialogComponent, {
+        width: '900px',
+        data: { caminhao }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('O diálogo foi fechado');
+      });
+    }
   }
 
   addCaminhao() {
